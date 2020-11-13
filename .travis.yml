@@ -1,10 +1,11 @@
 anguage: node_js
 node_js:
   - "10"
-
+before_install:
+ - npm install -g cnpm --registry=https://registry.npm.taobao.org
+ install:
+  -cnpm install
 after_script:
-  - npm install -g cnpm --registry=https://registry.npm.taobao.org
-  - cnpm install
   - npm run build
   - git config user.name "${USER_NAME}"
   - git config user.email "${USER_EMAIL}"
